@@ -23,7 +23,7 @@ public class TokenBucket implements IRateLimiter {
     }
 
     @Override
-    public boolean tryAcquire() {
+    public boolean tryAcquire(String key) {
         long currentTime = System.currentTimeMillis();
         long tokensToBeAdded = fillRate.getDifference(currentTime, lastRefillTime);
         if (tokensToBeAdded > 0) {

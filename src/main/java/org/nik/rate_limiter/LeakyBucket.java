@@ -22,7 +22,7 @@ public class LeakyBucket implements IRateLimiter {
     }
 
     @Override
-    public boolean tryAcquire() {
+    public boolean tryAcquire(String key) {
         long currentTimeMillis = System.currentTimeMillis();
 
         long leakedAmount = leakRate.getDifference(currentTimeMillis, lastLeakTimestamp);
